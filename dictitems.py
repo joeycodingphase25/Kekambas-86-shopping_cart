@@ -9,13 +9,18 @@ reference_dict = {
     "poptart": 1.37,
     "steak": 13.99,
     "bacon": 7.99,
+    "banana": 1.00,
+    "gum" : .99,
+    "yogurt" : 1.39,
+    "chips" : 3.99,
+    "cake" : 8.99,
 }
 
 shopping_list = {}
 
 def ordering():
     for x in range(10000):
-        order = input("What would you like to add to Cart? To see options press 'f'. To quit enter 'q'. To check cart 'c'. Return to Main Menu 'm'. To delete an item 'd'\n--> ")
+        order = input("What would you like to add to Cart? To see options press 'f'. To quit to Main 'q'. To check cart 'c'. Return to Main Menu 'm'. To delete an item 'd'\n--> ")
         if order.lower() == 'f':
             for y, z in reference_dict.items():
                 print(f"Item: {y.title()} --- Price: ${z}")
@@ -42,6 +47,7 @@ def ordering():
                 print("Please enter a valid answer")
         if order.lower() == 'q':
             quit() #Run price funtion with kill
+            break
         if order.lower() == 'c':
             price_check()
         if order.lower() == 'm':
@@ -55,8 +61,9 @@ def quit():  #Run price funtion with kill
         if item in shopping_list:
             item_total = cost * int(shopping_list[item])
             total += item_total    
-            print(f"{shopping_list[item]} {item} : {item_total}")
-    print(f"Your Total: {total}")
+            print(f"{shopping_list[item]} {item} : {round(item_total,2)}")
+    return print(f"Your Total: {round(total, 2)}")
+
 
 def price_check(): #Observe this monster, took hours to figure out
     print("Your Current Cart:")
@@ -65,12 +72,21 @@ def price_check(): #Observe this monster, took hours to figure out
         if item in shopping_list:
             item_total = cost * int(shopping_list[item])
             total += item_total    
-            print(f"{shopping_list[item]} {item} : {item_total}")
-    print(f"Your Total: {total}")
+            print(f"{shopping_list[item]} {item} : {round(item_total,2)}")
+    print(f"Your Total: {round(total, 2)}")
             
 
-def admin():
-    pass
+def admin(): # Hidden Administrator Privledges
+    for x in range(1000):
+        next = input("Welcome ADMIN, would you like to add to reference? 'y' / 'n'")
+        if next == 'y':
+            update_item, update_price = input("What would you like to add to reference? "), input("what is the new price? ")
+            reference_dict.update({update_item:update_price})
+        if next == 'n':
+            print("Thank you for the additions!")
+            shopping_adder()
+        else:
+            print("Please enter a valid keyword")
 
 def shopping_adder(): # THIS IS THE MAIN FUNCTION
     for x in range(10000):
@@ -79,6 +95,7 @@ def shopping_adder(): # THIS IS THE MAIN FUNCTION
             ordering()
         if progress.lower() == 'q':
             quit()
+            break
         if progress.lower() == 'c':
             price_check()
         if progress.lower() == 'd':
@@ -93,9 +110,8 @@ def shopping_adder(): # THIS IS THE MAIN FUNCTION
                         shopping_adder()
             if remitem not in shopping_list:
                 print("Please enter a valid answer")
-        if progress.lower() == 'admin':
-            update = input("Welcome ADMIN. What changes would you like to make today?")
-            pass 
+        if progress.lower() == 'admin': # Potential fun challenge for hidden admin privledges
+            admin()
         else:
             print("Please Enter a Valid Answer!")
 
