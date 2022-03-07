@@ -63,8 +63,8 @@ def quit():  #Run price funtion with kill
         if item in shopping_list:
             item_total = cost * int(shopping_list[item])
             total += item_total    
-            print(f"{shopping_list[item]} {item} : {round(item_total,2)}")
-    return print(f"Your Total: {round(total, 2)}")
+            print(f"{shopping_list[item]} {item} : ${round(item_total,2)}")
+    return print(f"Your Total: ${round(total, 2)}")
 
 
 def price_check(): #Observe this monster, took hours to figure out
@@ -74,8 +74,8 @@ def price_check(): #Observe this monster, took hours to figure out
         if item in shopping_list:
             item_total = cost * int(shopping_list[item])
             total += item_total    
-            print(f"{shopping_list[item]} {item} : {round(item_total,2)}")
-    print(f"Your Total: {round(total, 2)}")
+            print(f"{shopping_list[item]} {item} : ${round(item_total,2)}")
+    print(f"Your Total: ${round(total, 2)}")
             
 
 def admin(): # Hidden Administrator Privledges
