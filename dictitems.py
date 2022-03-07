@@ -43,6 +43,7 @@ def ordering():
                         print(f"You have removed {z} {y} from your list!")
                         del shopping_list[remitem]
                         ordering()
+                        break
             if remitem not in shopping_list:
                 print("Please enter a valid answer")
         if order.lower() == 'q':
@@ -52,6 +53,7 @@ def ordering():
             price_check()
         if order.lower() == 'm':
             shopping_adder()
+            break
         
 
 def quit():  #Run price funtion with kill
@@ -85,6 +87,7 @@ def admin(): # Hidden Administrator Privledges
         if next == 'n':
             print("Thank you for the additions!")
             shopping_adder()
+            break
         else:
             print("Please enter a valid keyword")
 
@@ -93,6 +96,7 @@ def shopping_adder(): # THIS IS THE MAIN FUNCTION
         progress = input("Welcome to Shoppa-Cart your online convienence cart Main Menu: What would you like to do?\n-Order ('o')\n-Quit ('q')\n-check cart ('c')\n-Delete Item ('d')\n-->  ")
         if progress.lower() == 'o':
             ordering()
+            break
         if progress.lower() == 'q':
             quit()
             break
@@ -108,6 +112,7 @@ def shopping_adder(): # THIS IS THE MAIN FUNCTION
                         print(f"You have removed {z} {y} from your list!")
                         del shopping_list[remitem]
                         shopping_adder()
+                        break
             if remitem not in shopping_list:
                 print("Please enter a valid answer")
         if progress.lower() == 'admin': # Potential fun challenge for hidden admin privledges
